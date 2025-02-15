@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+from datetime import timedelta
 
 
 class Passcard(models.Model):
@@ -28,3 +30,12 @@ class Visit(models.Model):
                 if self.leaved_at else 'not leaved'
             )
         )
+
+    def get_duration(self):
+        if self.leaved_at:
+            return self.leaved_at - self.entered_at
+        else:
+            return timedelta()
+
+
+
