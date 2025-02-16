@@ -1,7 +1,7 @@
 from datacenter.models import Passcard, Visit
 from django.shortcuts import render
 from django.utils.timezone import localtime
-from .utils import format_duration
+from datacenter.visit_utils import format_duration
 
 def storage_information_view(request):
     non_closed_visits = []
